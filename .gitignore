@@ -1,0 +1,21 @@
+# Local data, models, outputs and credentials
+/checkpoints/
+/data/
+/outputs/
+/vocab/output/
+/vocab/result/
+/.cache/
+/.validation/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+*.log
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+wandb/
+.DS_Store

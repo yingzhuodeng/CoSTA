@@ -354,7 +354,7 @@ class MyTrainer(Trainer):
                 update_step += 1
                 num_batches = args.gradient_accumulation_steps if update_step != (total_updates - 1) else remainder
                 batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
-                self.current_gradient_accumulation_steps = len(batch_samples) # add by enjoy
+                self.current_gradient_accumulation_steps = len(batch_samples)
                 for i, inputs in enumerate(batch_samples):
                     step += 1
                     do_sync_step = (step + 1) % args.gradient_accumulation_steps == 0 or (step + 1) == steps_in_epoch
@@ -633,7 +633,7 @@ class MyTrainer(Trainer):
             # Finally we need to normalize the loss for reporting
             if not self.model_accepts_loss_kwargs and self.compute_loss_func is None:
                 # loss = loss / self.args.gradient_accumulation_steps
-                loss = loss / self.current_gradient_accumulation_steps # add by enjoy
+                loss = loss / self.current_gradient_accumulation_steps
 
             # Turning off loss scaling w.r.t. gradient accumulation when DeepSpeed is enabled
             # https://github.com/huggingface/transformers/pull/35808
@@ -666,7 +666,7 @@ class MyTrainer(Trainer):
         # Case 2: We have a dataloader length and can extrapolate
         if len_dataloader is not None:
             # num_update_steps_per_epoch = max(len_dataloader // args.gradient_accumulation_steps, 1)
-            num_update_steps_per_epoch = max(math.ceil(len_dataloader / args.gradient_accumulation_steps), 1) # add by enjoy
+            num_update_steps_per_epoch = max(math.ceil(len_dataloader / args.gradient_accumulation_steps), 1)
             # Case 3: We have a length but are using epochs, we can extrapolate the number of steps
             if epoch_based:
                 max_steps = math.ceil(args.num_train_epochs * num_update_steps_per_epoch)
