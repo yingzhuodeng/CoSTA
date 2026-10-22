@@ -13,7 +13,7 @@ Can Xie<sup>1,2</sup>, Siyao Song<sup>1,2</sup>, Shuo Ren<sup>1</sup>, Jiajun Zh
 ![Task](https://img.shields.io/badge/Task-Spoken_Dialogue_Modeling-red)
 ![Method](https://img.shields.io/badge/Method-Speech_Token_Compression-blue)
 
-[📖 Paper](docs/CoSTA_arxiv.pdf) · [💻 Code](https://github.com/yingzhuodeng/CoSTA) · **🤗 Model weights & data: Coming soon**
+[📖 Paper](https://arxiv.org/abs/2610.21143) · [💻 Code](https://github.com/yingzhuodeng/CoSTA) · **🤗 Model weights & data: Coming soon**
 
 </div>
 
@@ -44,7 +44,7 @@ On the bilingual benchmarks in the paper, CoSTA improves expanded speech-token g
 | CoSTA-ZH | Chinese | 66.81% | 101.99 tokens/s | 173.63% |
 | CoSTA-EN | English | 70.17% | 99.05 tokens/s | 165.94% |
 
-These are the language-wise averages in Table 1 of the [paper](docs/CoSTA_arxiv.pdf). Compression rate is **compressed speech-token count / expanded speech-token count**; 66.81% means the compressed sequence retains 66.81% of the original number of tokens. Relative speed is normalized to the original model, so 173.63% corresponds to about **1.736×** speed. The paper also studies full-response latency, throughput, first-packet latency, and sustained multi-turn interaction.
+These are the language-wise averages in Table 1 of the [paper](https://arxiv.org/abs/2610.21143). Compression rate is **compressed speech-token count / expanded speech-token count**; 66.81% means the compressed sequence retains 66.81% of the original number of tokens. Relative speed is normalized to the original model, so 173.63% corresponds to about **1.736×** speed. The paper also studies full-response latency, throughput, first-packet latency, and sustained multi-turn interaction.
 
 ## 👀 Contents
 
@@ -62,6 +62,7 @@ These are the language-wise averages in Table 1 of the [paper](docs/CoSTA_arxiv.
 | Resource | Status |
 | --- | --- |
 | Vocabulary training, model adaptation, and inference code | Included |
+| vLLM inference and benchmarking code | Coming soon |
 | CoSTA-ZH / CoSTA-EN / CoSTA-MIX model weights | Coming soon |
 | Trained BPE vocabularies and matching mapping files | Coming soon |
 | Prepared pronunciation and dialogue adaptation data | Coming soon |
@@ -302,7 +303,19 @@ These scripts generate responses and token-count statistics. The complete timing
 
 ## 📚 Citation
 
-The arXiv citation will be added once the paper is available on arXiv.
+If you find CoSTA useful in your research, please cite our [paper](https://arxiv.org/abs/2610.21143):
+
+```bibtex
+@misc{deng2026costa,
+  title={{CoSTA}: Compressed Speech Token Adaptation for Efficient Spoken Dialogue Models},
+  author={Yingzhuo Deng and Chong Li and Bingxin Liu and Yi Shu and Tianyu Peng and Can Xie and Siyao Song and Shuo Ren and Jiajun Zhang},
+  year={2026},
+  eprint={2610.21143},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2610.21143}
+}
+```
 
 ## 🙏 Acknowledgements
 
